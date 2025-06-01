@@ -12,7 +12,7 @@ const http = require('http');
 const crypto = require('crypto');
 const exec = require('child_process').exec;
 
-const PM2_CMD = 'cd ~ && /home/ubuntu/.nvm/versions/node/v16.20.0/bin/pm2 restart all';
+const PM2_CMD = 'cd ~ && /home/ubuntu/.nvm/versions/node/v20.0.0/bin/pm2 restart all';
 
 http
   .createServer(function(req, res) {
@@ -38,7 +38,7 @@ http
 
     res.end();
   })
-  .listen(8080);
+  .listen(9000);
 EOF
 
 
@@ -48,10 +48,10 @@ Description=Github webhook
 After=network.target
 
 [Service]
-Environment=PATH=/usr/bin:/usr/local/bin:/usr/sbin:/usr/local/sbin:/home/ubuntu/.nvm/versions/node/v16.20.0/bin:$PATH
+Environment=PATH=/usr/bin:/usr/local/bin:/usr/sbin:/usr/local/sbin:/home/ubuntu/.nvm/versions/node/v20.0.0/bin:$PATH
 Type=simple
 User=ubuntu 
-ExecStart=/home/ubuntu/.nvm/versions/node/v16.20.0/bin/node /home/ubuntu/webhook.js
+ExecStart=/home/ubuntu/.nvm/versions/node/v20.0.0/bin/node /home/ubuntu/webhook.js
 Restart=on-failure
 
 [Install]
